@@ -9,7 +9,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y libpcap-dev
 
 # Grab Go deps and install
-RUN go get
+RUN go get github.com/google/gopacket/pcap
+RUN go get github.com/unrolled/render
 RUN go build -o main .
 
 EXPOSE 80
