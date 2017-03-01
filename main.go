@@ -11,14 +11,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	dataH, err := NewDataHandler("eth0")
-	if err != nil {
-		log.Fatal(err)
-	}
+	/*
+		dataH, err := NewDataHandler("eth0")
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
 
 	m := http.NewServeMux()
 
-	m.Handle("/data/", dataH.Handler())
+	//m.Handle("/data/", dataH.Handler())
 	m.Handle("/", catsH.Handler())
 
 	if err := http.ListenAndServe("0.0.0.0:80", m); err != nil {
